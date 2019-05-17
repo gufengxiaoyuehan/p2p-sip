@@ -1329,7 +1329,7 @@ class Dialog(UserAgent):
             del d.routeSet[0]
             if len(d.routeSet) == 0: d.routeSet = None
         d.secure = request.uri.secure
-        d.localSeq, d.localSeq = 0, request.CSeq.number
+        d.localSeq, d.remoteSeq = 0, request.CSeq.number
         d.callId = request['Call-ID'].value
         d.localTag, d.remoteTag = response.To['tag'] or '', request.From['tag'] or ''
         d.localParty, d.remoteParty = Address(str(request.To.value)), Address(str(request.From.value))
